@@ -1,0 +1,55 @@
+{
+    "manifestVersion": 1,
+    "id": "OpenIAPullRequestReview",
+    "name": "Open IA Pull Request Review",
+    "version": "0.0.2",
+    "publisher": "junior151280",
+    "galleryFlags": [
+        "Public",
+        "Preview"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "A task that review Pull Request using GPT model from OpenAI",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/icon.png"        
+    },
+    "tags": [
+        "OpenAI",
+        "GPT",
+        "pullRequest",
+        "review"
+    ],
+    "files": [
+        {
+            "path": "OpenIAPullRequestReview"
+        }
+    ],
+    "repository" : {
+        "type" : "git",
+        "uri" : "https://github.com/junior15180/azure-pipeline-openia-pr-review"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "contributions": [
+        {
+            "id": "OpenIAPullRequestReview",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "OpenIAPullRequestReview"
+            }
+        }
+    ]
+}

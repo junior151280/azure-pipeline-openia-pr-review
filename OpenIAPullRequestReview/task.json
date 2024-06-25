@@ -1,0 +1,83 @@
+{
+  "id": "ec409a40-3abc-46cb-994e-731455333966",
+  "name": "OpenIAPullRequestReview",
+  "friendlyName": "Review PullRequest by OpenIA",
+  "description": "This task use OpenAi GPT model to review PullRequests",
+  "author": "Jailton S. Sales Jr by Mustapha Larhrouch",
+  "helpMarkDown": "[More Information](https://github.com/junior15180/azure-pipeline-openia-pr-review)",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "OpenIAPullRequestReview $(message)",
+  "inputs": [
+    {
+      "name": "api_key",
+      "type": "string",
+      "label": "Api key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Api key of OpenAi or Azure OpenAI."
+    },
+    {
+      "name": "model",
+      "type": "pickList",
+      "label": "OpenAI model",
+      "required": false,
+      "options": {
+        "": "",
+        "gpt-4": "GPT 4",
+        "gpt-3.5-turbo": "GPT 3.5 Turbo",
+        "gpt-3.5-turbo-16k": "GPT 3.5 Turbo 16k"
+      },
+      "helpMarkDown": "The OpenAI model to use. not used if you use Azure OpenAI. if no model is selected, the GPT 3.5 Turbo model is used."
+    },
+    {
+      "name": "aoi_endpoint",
+      "type": "string",
+      "label": "Azure OpenApi Endpoint",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Azure OpenApi Endpoint, leave empty to use default endpoint. (optional)"
+    },
+    {
+      "name": "support_self_signed_certificate",
+      "type": "boolean",
+      "label": "Support self-signed certificate",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Select this option to support self-signed certificate."
+    },
+    {
+      "name": "use_https",
+      "type": "boolean",
+      "label": "Use Agent HTTPS",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Select this option to use HTTPS for the agent."
+    },
+    {
+      "name": "review_language",
+      "type": "pickList",
+      "label": "Review Language",
+      "required": true,
+      "options": {
+        "PT-BR": "Português (Brasil)",
+        "EN-US": "English"
+        },
+      "helpMarkDown": "The language of the review."
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "dist/index.js"
+    }
+  }
+}
